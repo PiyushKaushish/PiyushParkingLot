@@ -38,7 +38,7 @@ public class LearnerManagementServiceTest {
 
   @BeforeEach
   public void setup() {
-    Learner learner = new Learner(1L, "Test", "test@gmail.com", "123");
+    learner = new Learner(1L, "Test", "test@gmail.com", "123");
     System.out.println("Setting up LearnerManagementServiceTest");
   }
 
@@ -47,6 +47,7 @@ public class LearnerManagementServiceTest {
   public void testLearnerCreated_Successfully() {
 
     when(learnerRepository.save(learner)).thenReturn(learner);
+
     Learner expectedLearner = learnerManagementService.createLearner(learner);
     Assertions.assertEquals("Test", expectedLearner.getLearnerName());
     Assertions.assertEquals("test@gmail.com", expectedLearner.getLearnerEmail());

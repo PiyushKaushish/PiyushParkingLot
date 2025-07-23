@@ -31,9 +31,8 @@ public class LearnerManagementService {
   @Autowired
   private CourseRepository _courseRepository;
 
-  public String createLearner(Learner learner) {
-     _learnerRepository.save(learner);
-     return "Hello "
+  public Learner createLearner(Learner learner) {
+     return _learnerRepository.save(learner);
   }
 
   public List<Learner> fetchAllLearners() {
